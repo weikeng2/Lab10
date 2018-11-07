@@ -33,7 +33,17 @@ public class Sorting {
      */
     @SuppressWarnings("unused")
     private static int[] bubbleSort(final int[] array) {
-        return null;
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    // swap temp and arr[i]
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+        return array;
     }
 
     /**
@@ -44,7 +54,19 @@ public class Sorting {
      */
     @SuppressWarnings("unused")
     private static int[] selectionSort(final int[] array) {
-        return null;
+        int n = array.length;
+        for (int i = 0; i < n - 1; i++) {
+            // Find the minimum element in unsorted array
+            int min = i;
+            for (int j = i + 1; j < n; j++)
+                if (array[j] < array[min])
+                    min = j;
+
+            int temp = array[min];
+            array[min] = array[i];
+            array[i] = temp;
+        }
+        return array;
     }
 
     /**
